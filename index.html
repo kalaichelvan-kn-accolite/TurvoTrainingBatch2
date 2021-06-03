@@ -5,12 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular Assignment</title>
+    <script type = "text/javascript" src="index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div class="card" ng-app="">
-        <button>Click Me</button>
+    <div class="card" ng-app = "employee" ng-controller="myfunc">
+            <h1 style = "color: black;">{{name}}</h1>
     </div>
+    <script>
+        var app = angular.module('employee', []);
+        app.controller('myfunc', function($scope, $http) {
+            var url = "https://jsonplaceholder.typicode.com/users";
+            async function sub(url){
+                var res = await fetch(url);
+                var response = await res.json();
+                console.log(response[0].name);
+                $scope.name = response[0].name;
+            }
+            sub(url);
+        });
+    </script>
+
 </body>
 </html>
