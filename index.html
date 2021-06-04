@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app = "employee">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular Assignment</title>
-    <script type = "text/javascript" src="index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <center>
-    <div class = 'card' ng-app = "employee" ng-controller="myfunc">
-        <ul>
-            <ul ng-repeat="x in rec">
-                <button>{{x['name']}}</button>
+        <h1>Users </h1>
+    <div ng-controller="myfunc">
+        <div class = "card">
+        <ul style = "padding-left: 0px;">
+            <ul ng-repeat="x in rec track by $index" ng-value ="{{$index}}" style = "padding-left: 0px;">
+                <button ng-click="red($index)">{{$index}} : {{x['name']}}</button>
             </ul>
 
         </ul>
+        </div>
+        <div class="result">
+            Name : {{details['name']}}<br>
+            Username : {{details['username']}}<br>
+            Phone : {{details['phone']}}<br>
+            Website : {{details['website']}}
+        </div>
     </div>
     </center>
-    <script>
-        var app = angular.module('employee', []);
-        app.controller('myfunc', function($scope, $http) {
-            $http.get("https://jsonplaceholder.typicode.com/users")
-            .then(function(response) {
-                var obj = response.data;
-                $scope.rec = obj;
-            });
-        })
-    </script>
+    <script  src="index.js"></script>
+
 
 </body>
 </html>
