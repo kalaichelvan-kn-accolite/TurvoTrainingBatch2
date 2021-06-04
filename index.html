@@ -10,23 +10,27 @@
 </head>
 <body>
     <center>
-        <h1>Users </h1>
-    <div ng-controller="myfunc">
-        <div class = "card">
-        <ul style = "padding-left: 0px;">
-            <ul ng-repeat="x in rec track by $index" ng-value ="{{$index}}" style = "padding-left: 0px;">
-                <button ng-click="red($index)">{{$index}} : {{x['name']}}</button>
-            </ul>
-
-        </ul>
-        </div>
-        <div class="result">
-            Name : {{details['name']}}<br>
-            Username : {{details['username']}}<br>
-            Phone : {{details['phone']}}<br>
-            Website : {{details['website']}}
-        </div>
-    </div>
+        <h1>Users and Details </h1>
+        <div class = "row" ng-controller="myfunc">
+            <div class = "column" style = "border-right: 2px solid grey;">
+                
+                <div class = "card">
+                    <ul style = "padding-left: 0px;">
+                        <ul ng-repeat="x in rec track by $index" ng-value ="{{$index}}" style = "padding-left: 0px;">
+                            <button ng-click="red($index)">{{x['name']}}</button>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class = "column">
+                <div class="result">
+                    Name     : {{details['name']}}<br>
+                    Username : {{details['username']}}<br>
+                    Phone    : {{details['phone']}}<br>
+                    Website  : {{details['website']}}
+                </div>
+            </div>
+         </div>
     </center>
     <script  src="index.js"></script>
 
