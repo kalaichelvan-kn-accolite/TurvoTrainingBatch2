@@ -10,21 +10,25 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div class="card" ng-app = "employee" ng-controller="myfunc">
-            <h1 style = "color: black;">{{name}}</h1>
+    <center>
+    <div class = 'card' ng-app = "employee" ng-controller="myfunc">
+        <ul>
+            <ul ng-repeat="x in rec">
+                <button>{{x['name']}}</button>
+            </ul>
+
+        </ul>
     </div>
+    </center>
     <script>
         var app = angular.module('employee', []);
         app.controller('myfunc', function($scope, $http) {
-            var url = "https://jsonplaceholder.typicode.com/users";
-            async function sub(url){
-                var res = await fetch(url);
-                var response = await res.json();
-                console.log(response[0].name);
-                $scope.name = response[0].name;
-            }
-            sub(url);
-        });
+            $http.get("https://jsonplaceholder.typicode.com/users")
+            .then(function(response) {
+                var obj = response.data;
+                $scope.rec = obj;
+            });
+        })
     </script>
 
 </body>
