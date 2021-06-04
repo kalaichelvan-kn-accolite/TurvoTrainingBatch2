@@ -1,17 +1,47 @@
+body{
+    background-color: grey;
+}
+
+
+* {
+    box-sizing: border-box;
+
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 600px;
+    background-color: rgba(1, 7, 7, 0.589);
+    border-radius: 20px;
+  }
+
 .card{
     height: 600px;
-    width: 500px;
-    background-color: aqua;
+    width: 414.8px;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 0px;
     padding: 5px;
+}
+.result{
+    text-align: left;
+    padding-top: 25%;
+    font-size: 25px;
+    padding-left: 25%;
+    color: white;
 }
 button{
     width: 400px;   
     height: 50px;
-    background-color: rgb(197, 89, 17);
+    background-color: rgb(12, 12, 11);
     margin-top: 5px;
     border-radius:10px;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: bold;
+    color: rgba(255, 255, 255, 0.781);
 }

@@ -6,13 +6,13 @@ app.controller('myfunc', function($scope, $http) {
         $scope.rec = obj;
     });
      $scope.red = function(ind){
-        console.log(ind);
+        // console.log(ind);
         ind += 1;
         $http.get("https://jsonplaceholder.typicode.com/users/" + ind)
         .then(function(response) {
             var obj = response.data;
             $scope.details = obj;
-            console.log(obj);
+            // console.log(obj);
         });
      }
 })
